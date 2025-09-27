@@ -1,38 +1,39 @@
-import { FlatList, View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Link } from "expo-router";
-export default function HomeScreen() {
+
+export default function Home () {
+
   return (
     <View>
-        <View>
-          <Text style={styles.titulo}>Perfil de usuario</Text>
-      <SafeAreaView styles={styles.container}>
-          <Text>Username</Text>
-          <Text>Name</Text>
+      <SafeAreaView>
+        <Text style={styles.titulo}>HOME</Text>
       </SafeAreaView>
-        </View>
     </View>
   );
 }
 
 
 const styles = StyleSheet.create({
-  texto: {
-    fontFamily: "Cochin",
-    fontSize: 40,
-    fontWeight: "bold",
-    textAlign: "center"
-  },
-  container: {
-    flex: 1,
-    backgroundColor: "#ffafafff",
-    alignItems: "center",
-    justifyContent: "center",
+  item: {
+    fontSize: 16,
+    paddingVertical: 4,
   },
   titulo: {
     fontFamily: "Cochin",
     fontSize: 25,
     fontWeight: "bold",
     textAlign: "center"
+  },
+  texto: {
+    fontFamily: "Cochin",
+    fontSize: 20,
+    textAlign: "center",
+    color: "#b89feeff"
+  },
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

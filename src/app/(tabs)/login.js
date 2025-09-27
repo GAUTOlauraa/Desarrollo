@@ -1,6 +1,7 @@
 import { Link } from "expo-router";
 import { StyleSheet, View, Text, TextInput, Button } from 'react-native';
 import { StatusBar } from "expo-status-bar";
+import { useAuth } from "../../hooks/useAuth";
 
 export default function App() {
     return (

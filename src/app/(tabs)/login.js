@@ -1,4 +1,3 @@
-import { Link } from "expo-router";
 import { StyleSheet, View, Text, TextInput, Button } from 'react-native';
 import { StatusBar } from "expo-status-bar";
 import { useAuth } from "../../hooks/useAuth";
@@ -38,10 +37,9 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
     },
-
     boton: {
         title: "sign up",
-        color: "#841584",
+        color: "#ad7fd0ff",
         width: 300,
     },
     diseñoBoton: {

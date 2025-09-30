@@ -1,21 +1,25 @@
 import { useState } from "react";
+import { registerApi } from "../api/api";
 
 
 export const useAuth = () => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const register = async (data) => {
     try {
-      //setLoading(true)
+      setLoading(true);
       setError(null);
 
-      const response = await api.post("/users/register", data);
+      const response = await registerApi.post("/users/register", data);
       if (response.data.msg) router.replace("/login");
     } catch (err) {
       setError(err.response?.data?.error || err.message);
       throw err;
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -24,7 +28,7 @@ export const useAuth = () => {
       setLoading(true);
       setError(null);
 
-      const response = await api.post("/users/login", data);
+      const response = await registerApi.post("/users/login", data);
       setUser(response.data.user);
       setToken(response.data.token);
       return response.data;
@@ -41,5 +45,5 @@ export const useAuth = () => {
     setToken(null);
   };
 
-  return { user, token, loading, error, register, login, logout };
+  return { user, token, error, loading, register, login, logout };
 };

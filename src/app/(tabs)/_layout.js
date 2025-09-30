@@ -2,19 +2,33 @@ import { Drawer } from 'expo-router/drawer';
 
 export default function tabLayout() {
     return (
-    <Drawer>
+    <Drawer screenOptions={{drawerActiveTintColor: "#ffffffff", drawerActiveBackgroundColor: "#d2abf1ff"}}>
       <Drawer.Screen
-        name="peliculas" // This is the name of the page and must match the url from root
+        name="home"
+        options={{
+          drawerLabel: 'Home',
+          title: 'Inicio',
+        }}
+      />
+      <Drawer.Screen
+        name="peliculas"
         options={{
           drawerLabel: 'Lista peliculas',
           title: 'Listado de Peliculas',
         }}
       />
       <Drawer.Screen
-        name="home" // This is the name of the page and must match the url from root
+        name="login"
         options={{
-          drawerLabel: 'Home',
-          title: 'Home',
+          drawerLabel: 'Login',
+          title: 'Iniciar Sesion',
+        }}
+      />
+      <Drawer.Screen
+        name="register"
+        options={{
+          drawerLabel: 'Register',
+          title: 'Registrate',
         }}
       />
     </Drawer>
@@ -22,7 +36,7 @@ export default function tabLayout() {
     
 }
 
-/* <Tabs ScreenOptions={{ tabBarActiveBackgroundColor: 'blue',}}>
+{/* <Tabs ScreenOptions={{ tabBarActiveBackgroundColor: 'blue',}}>
     <Tabs.Screen name="settings"
         options={{
             title: 'Settings',
@@ -37,4 +51,4 @@ export default function tabLayout() {
         }}
     />
 
-</Tabs> */
+</Tabs> */}

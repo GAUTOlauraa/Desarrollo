@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+{/*import { useEffect, useState } from "react"
 
 const usePokemons = (limit = 20) => {
     const [pokemons, setPokemons] = useState([]);
@@ -23,4 +23,4 @@ const usePokemons = (limit = 20) => {
     return { pokemons, loading, error };
 };
 
-export default usePokemons;
+export default usePokemons;*/}

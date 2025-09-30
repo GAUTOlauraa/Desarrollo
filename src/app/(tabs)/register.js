@@ -1,11 +1,10 @@
-import { Link } from "expo-router";
 import { StyleSheet, View, Text, TextInput, Button } from 'react-native';
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 import { useAuth } from "../../hooks/useAuth";
 
 export default function RegisterScreen() {
-    const {register, error} = useAuth();
+    const register = useAuth();
 
     const [username, setUsername] = useState('');
     const [name, setName] = useState('');
@@ -64,7 +63,7 @@ const styles = StyleSheet.create({
     },
     boton: {
         title: "aceptar",
-        color: "#841584",
+        color: "#ad7fd0ff",
         width: 300,
     },
     diseñoBoton: {

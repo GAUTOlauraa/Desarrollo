@@ -1,16 +1,12 @@
 import { FlatList, View, Text, StyleSheet, Image } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import usePeliculas from "../../hooks/usePeliculas";
 
 export default function App() {
-  const { Peliculas } = usePeliculas(20);
-
+  const { Peliculas } = usePeliculas(30);
 
   return (
     <View style={styles.container}>
-
       <Text style={styles.titulo}>Cuevana</Text>
-
 
       <FlatList
         data={Peliculas}
@@ -22,14 +18,11 @@ export default function App() {
             <Image source={{ uri: item.image.original }}
               style={styles.imagen}></Image>
             <Text style={styles.texto}>{item.name}</Text>
-            <Text style={styles.texto}>{item.rating.average}</Text>
+            <Text style={styles.texto}>★ {item.rating.average}</Text>
           </View>
 
         }
       />
-
-
-
     </View>
   );
 }
@@ -55,7 +48,8 @@ const styles = StyleSheet.create({
   },
 
   texto: {
-    fontFamily: "Cochin",
+    fontStyle: "normal",
+    fontFamily: "small-caps",
     fontWeight: "light",
     fontSize: 20,
     alignItems: "center",

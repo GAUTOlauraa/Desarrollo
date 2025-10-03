@@ -1,27 +1,42 @@
-import { FlatList, View, Text, StyleSheet, Image } from "react-native";
+import {
+  FlatList,
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  Pressable,
+} from "react-native";
 import usePeliculas from "../../hooks/usePeliculas";
+import { Link } from "expo-router";
 
 export default function App() {
-  const { Peliculas } = usePeliculas(30);
+  const { peliculas } = usePeliculas();
 
   return (
     <View style={styles.container}>
       <Text style={styles.titulo}>Cuevana</Text>
 
       <FlatList
-        data={Peliculas}
+        data={peliculas}
         numColumns={3}
-        keyExtractor={(item) => item.name}
-        renderItem={({ item }) =>
-
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
           <View style={styles.itemContainer}>
-            <Image source={{ uri: item.image.original }}
-              style={styles.imagen}></Image>
+            <Link
+              href={`/peliculas/${item.id}`}
+              asChild
+            >
+              <Pressable>
+                <Image
+                  source={{ uri: item.image.original }}
+                  style={styles.imagen}
+                ></Image>
+              </Pressable>
+            </Link>
             <Text style={styles.texto}>{item.name}</Text>
             <Text style={styles.texto}>★ {item.rating.average}</Text>
           </View>
-
-        }
+        )}
       />
     </View>
   );
@@ -44,7 +59,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     marginBottom: 20,
     backgroundColor: "#d9b3f7ff",
-    textAlign: "center"
+    textAlign: "center",
   },
 
   texto: {
@@ -52,11 +67,11 @@ const styles = StyleSheet.create({
     fontFamily: "small-caps",
     fontWeight: "light",
     fontSize: 20,
-    alignItems: "center",
+    textAlign: "center",
     justifyContent: "center",
   },
   imagen: {
     width: 100,
     height: 150,
-  }
+  },
 });

@@ -33,8 +33,12 @@ export default function App() {
                 ></Image>
               </Pressable>
             </Link>
-            <Text style={styles.texto}>{item.name}</Text>
-            <Text style={styles.texto}>★ {item.rating.average}</Text>
+            <Text
+              style={styles.texto}
+              numberOfLines={1}
+              ellipsizeMode="tail">
+              {item.name}</Text>
+            <Text style={{ fontSize: 18, textAlign: "center", marginBottom: 15, fontWeight: "bold" }}>★ {item.rating.average}</Text>
           </View>
         )}
       />
@@ -68,7 +72,7 @@ const styles = StyleSheet.create({
     fontWeight: "light",
     fontSize: 20,
     textAlign: "center",
-    justifyContent: "center",
+    width: 100,
   },
   imagen: {
     width: 100,

@@ -1,14 +1,15 @@
 import { View, Text, StyleSheet, Image } from "react-native";
 import usePeliculas from "../../hooks/usePeliculas";
-import { useLocalSearchParams } from "expo-router";
+import { useLocalSearchParams, useNavigation } from "expo-router";
 import { useEffect } from "react";
 import { ScrollView } from "react-native";
-
+ //navigation.setOptions({
+      //title: "hola"
+    //})
 
 export default function App() {
 
   const { idPelicula } = useLocalSearchParams();
-
   const { pelicula, getPeliculaById, loading } = usePeliculas();
 
   const stripHtmlTags = (htmlString) => {
@@ -18,7 +19,10 @@ export default function App() {
 
   const cleanSummary = pelicula?.summary ? stripHtmlTags(pelicula.summary) : "cargando...";
 
+  //const navigation = useNavigation;
+
   useEffect(() => {
+
     if (idPelicula) {
       getPeliculaById(idPelicula);
     }
